@@ -1,0 +1,31 @@
+<body fxLayout="column" fxLayoutAlign="center stretch">
+
+    <div class="buttons"  fxLayout="row" fxLayoutAlign="space-around center">
+        <div class="upload-file">
+            <label for="file-upload" class="custom-file-upload">
+                Upload File
+            </label>
+            <input id="file-upload" type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".wav">
+        </div>
+
+        <button (click)="clear()">Clear Table</button>
+
+        <button (click)="downloadExcel()">Download Excel</button>
+
+    </div>
+
+    <table>
+        <tbody>
+            <th fxFlex="80" class="filename">File Name</th>
+            <th fxFlex="30" class="tempo">Overall Tempo</th>
+            <th fxFlex="10" class="peak">Peak 1</th>
+            <th fxFlex="10" class="peak">Peak 2</th>
+        </tbody>
+        <tbody *ngFor="let file of files">
+            <td fxFlex="80" class="filename">{{file.filename}}</td>
+            <td fxFlex="30" class="tempo">{{file.overall_tempo}}</td>
+            <td fxFlex="10" class="peak">{{file.peak_1}}</td>
+            <td fxFlex="10" class="peak">{{file.peak_2}}</td>
+        </tbody>
+    </table>
+</body>
